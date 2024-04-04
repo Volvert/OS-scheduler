@@ -17,6 +17,14 @@ typedef struct Computer_t Computer;
 typedef struct Scheduler_t Scheduler;
 
 
+/* ---------------------------- Static function ---------------------------- */
+
+static int getCurrentRunningProcessId(); // Fonction pour obtenir l'ID du processus actuellement en cours d'exécution
+
+
+static int getNextReadyProcessId(); // Fonction pour obtenir l'ID du prochain processus prêt à être exécuté
+
+
 /* -------------------------- getters and setters -------------------------- */
 
 int getWaitQueueCount(void);
@@ -28,5 +36,11 @@ void freeScheduler(Scheduler *scheduler);
 
 
 /* -------------------------- scheduling functions ------------------------- */
+
+
+PCB* sjf(Workload *workload); // Fonction SJF (Shortest Job First)
+
+
+PCB* rr(Workload *workload, int *currentTime, int timeSlice); // Fonction RR (Round Robin)
 
 #endif // schedulingLogic_h
